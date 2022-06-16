@@ -13,6 +13,7 @@ return {
         relativenumber = false,
         -- signcolumn = "yes",
         scrolloff = 4,
+        sidescrolloff=6,
 
         -- [[ File encoding ]]
         encoding = 'utf8',
