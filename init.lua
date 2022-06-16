@@ -60,7 +60,7 @@ local config = {
       rainbow = true,
       symbols_outline = false,
       telescope = true,
-      vimwiki = false,
+      vimwiki = true,
       ["which-key"] = true,
     },
   },
@@ -79,6 +79,7 @@ local config = {
       -- ["goolord/alpha-nvim"] = { disable = true },
 
       -- You can also add new plugins here as well:
+      { 'vimwiki/vimwiki' },
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
@@ -217,38 +218,7 @@ local config = {
       command = "source <afile> | PackerSync",
     })
 
-    -- require('./opts')
-
-    -- [[ Context ]]
-    -- o.colorcolumn = '100'
-    vim.opt.number = true
-    vim.opt.relativenumber = false -- true
-    -- o.signcolumn = "yes"
-    vim.opt.scrolloff = 4
-
-    -- [[ File encoding ]]
-    vim.opt.encoding = 'utf8'
-    vim.opt.fileencoding = 'utf8'
-
-    -- [[ Theme ]]
-    vim.opt.syntax = "ON"
-    vim.opt.termguicolors = true
-
-    -- [[ Search ]]
-    vim.opt.ignorecase = true
-    vim.opt.smartcase = true
-    vim.opt.incsearch = true
-    vim.opt.hlsearch = true
-
-    -- [[ Whitespace ]]
-    vim.opt.expandtab = true
-    vim.opt.shiftwidth = 4
-    vim.opt.softtabstop = 4
-    vim.opt.tabstop = 4
-
-    -- [[ Splits ]]
-    vim.opt.splitright = true
-    vim.opt.splitbelow = true
+    require('user.options')
 
     -- Set up custom filetypes
     -- vim.filetype.add {
