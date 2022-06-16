@@ -20,16 +20,6 @@ local config = {
   -- Set colorscheme
   colorscheme = "default_theme",
 
-  -- set vim options here (vim.<first_key>.<second_key> =  value)
-  options = {
-    opt = {
-      relativenumber = true, -- sets vim.opt.relativenumber
-    },
-    g = {
-      mapleader = " ", -- sets vim.g.mapleader
-    },
-  },
-
   -- Default theme configuration
   default_theme = {
     diagnostics_style = { italic = true },

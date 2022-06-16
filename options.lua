@@ -8,7 +8,7 @@
 return {
     opt = {
         -- [[ Context ]]
-        -- colorcolumn = '100'
+        colorcolumn = "80,100",
         number = true,
         relativenumber = false,
         -- signcolumn = "yes",
