@@ -18,7 +18,7 @@ local config = {
   },
 
   -- Set colorscheme
-  colorscheme = "default_theme",
+  colorscheme = "catppuccin",
 
   -- Default theme configuration
   default_theme = {
@@ -70,6 +70,13 @@ local config = {
 
       -- You can also add new plugins here as well:
       { 'vimwiki/vimwiki' },
+      {
+        'catppuccin/nvim',
+        as = 'catppuccin',
+        config = function()
+          require("catppuccin").setup {}
+        end,
+      },
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
