@@ -50,7 +50,7 @@ local config = {
       rainbow = true,
       symbols_outline = false,
       telescope = true,
-      vimwiki = true,
+      vimwiki = false,
       ["which-key"] = true,
     },
   },
@@ -69,7 +69,17 @@ local config = {
       -- ["goolord/alpha-nvim"] = { disable = true },
 
       -- You can also add new plugins here as well:
-      { 'vimwiki/vimwiki' },
+      -- { 'vimwiki/vimwiki' },
+      {
+        'renerocksai/telekasten.nvim',
+        config = require('user.telekasten_config')
+      },
+      {
+        'iamcco/markdown-preview.nvim',
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        ft = { "markdown" },
+      },
       {
         'catppuccin/nvim',
         as = 'catppuccin',
@@ -205,6 +215,8 @@ local config = {
   polish = function()
     -- Set key bindings
     vim.keymap.set("n", "<C-s>", ":w!<CR>")
+    local keys = require('user.keybindings')
+    keys()
 
     -- Set autocommands
     vim.api.nvim_create_augroup("packer_conf", { clear = true })
