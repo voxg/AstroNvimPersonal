@@ -1,12 +1,19 @@
+--
+--    _      _ __    __         
+--   (_)__  (_) /_  / /_ _____ _
+--  / / _ \/ / __/ / / // / _ `/
+-- /_/_//_/_/\__(_)_/\_,_/\_,_/ 
+--                              
+--
 local config = {
 
   -- Configure AstroNvim updates
   updater = {
     remote = "origin", -- remote to use
-    channel = "nightly", -- "stable" or "nightly"
+    channel = "stable", -- "stable" or "nightly"
     version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "main", -- branch name (NIGHTLY ONLY)
-    commit = nil, -- commit hash (NIGHTLY ONLY)
+    -- branch = "main", -- branch name (NIGHTLY ONLY)
+    -- commit = nil, -- commit hash (NIGHTLY ONLY)
     pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
     skip_prompts = false, -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
@@ -71,8 +78,12 @@ local config = {
       -- You can also add new plugins here as well:
       -- { 'vimwiki/vimwiki' },
       {
+        'nvim-telescope/telescope-media-files.nvim',
+        config = function() require('telescope').load_extension('media_files') end
+      },
+      {
         'renerocksai/telekasten.nvim',
-        config = require('user.telekasten_config')
+        config = require('user.tkconf')
       },
       {
         'iamcco/markdown-preview.nvim',
@@ -121,6 +132,13 @@ local config = {
       end
       return config -- return final config table
     end,
+    telescope = {
+      extensions = {
+        media_files = {
+          find_cmd = "rg"
+        }
+      }
+    },
     treesitter = {
       ensure_installed = { "lua" },
     },
