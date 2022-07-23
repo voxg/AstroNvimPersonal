@@ -1,4 +1,32 @@
+-- 
+--    _      _ __    __         
+--   (_)__  (_) /_  / /_ _____ _
+--  / / _ \/ / __/ / / // / _ `/
+-- /_/_//_/_/\__(_)_/\_,_/\_,_/ 
+--                              
+-- 
 local config = {
+
+  header = {
+    " ",
+    " ",
+    "██╗   ██╗ ██████╗ ██╗  ██╗ ██████╗ ",
+    "██║   ██║██╔═══██╗╚██╗██╔╝██╔════╝ ",
+    "██║   ██║██║   ██║ ╚███╔╝ ██║  ███╗",
+    "╚██╗ ██╔╝██║   ██║ ██╔██╗ ██║   ██║",
+    " ╚████╔╝ ╚██████╔╝██╔╝ ██╗╚██████╔╝",
+    "  ╚═══╝   ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ",
+    "                                   ",
+    " ███╗   ██╗██╗   ██╗██╗███╗   ███╗ ",
+    " ████╗  ██║██║   ██║██║████╗ ████║ ",
+    " ██╔██╗ ██║██║   ██║██║██╔████╔██║ ",
+    " ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+    " ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+    " ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+    "                                   ",
+    " ",
+  },
+  --]=====]
 
   -- Configure AstroNvim updates
   updater = {
@@ -18,7 +46,7 @@ local config = {
   },
 
   -- Set colorscheme
-  colorscheme = "catppuccin",
+  --colorscheme = "catppuccin",
 
   -- Default theme configuration
   default_theme = {
@@ -63,13 +91,13 @@ local config = {
 
   -- Configure plugins
   plugins = {
+    autopairs = {
+      disable_filetype = { "TelescopePrompt", "spectre_panel", "ps1" },
+    },
     -- Add plugins, the packer syntax without the "use"
     init = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
-
-      -- You can also add new plugins here as well:
-      -- { 'vimwiki/vimwiki' },
       {
         'renerocksai/telekasten.nvim',
         config = require('user.telekasten_config')
@@ -80,14 +108,6 @@ local config = {
         setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
         ft = { "markdown" },
       },
-      {
-        'catppuccin/nvim',
-        as = 'catppuccin',
-        config = function()
-          require("catppuccin").setup {}
-        end,
-      },
-      -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
       --   event = "BufRead",
@@ -129,16 +149,6 @@ local config = {
     },
     packer = {
       compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
-    },
-  },
-
-  -- LuaSnip Options
-  luasnip = {
-    -- Add paths for including more VS Code style snippets in luasnip
-    vscode_snippet_paths = {},
-    -- Extend filetypes
-    filetype_extend = {
-      javascript = { "javascriptreact" },
     },
   },
 

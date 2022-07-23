@@ -1,0 +1,41 @@
+{
+    "sb": {
+        "prefix": ["sb"],
+        "body": [
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Multi-line { } pair without NVIM autoindent problems"
+    },
+    "snip2a": {
+        "prefix": "func",
+        "body": [
+            "function $1 {",
+            "\t[CmdletBinding(",
+            "\t\tDefaultParameterSetName=\"Default\",",
+            "\t\tSupportsShouldProcess=\\$False",
+            "\t)]",
+            "\tPARAM(",
+            "\t$0",
+            "\t)",
+            "\t# TODO",
+            "}",
+            ""
+        ]
+    },
+    "snip3": {
+        "prefix": "param",
+        "body": [
+            "[Parameter(Mandatory=\\$${1:True})][String]\\$$0"
+        ]
+    },
+    "snip4": {
+        "prefix": "should",
+        "body": [
+            "if (\\$PSCmdlet.ShouldProcess(${1:'TARGET'},${2:'OPERATION'})) {",
+            "\t$0",
+            "}"
+        ]
+    }
+}
