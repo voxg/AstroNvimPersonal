@@ -22,6 +22,7 @@ return {
         -- [[ Theme ]]
         syntax = "ON",
         termguicolors = true,
+        guifont = 'FiraCode Nerd Font Mono',
 
         -- [[ Search ]]
         ignorecase = true,
@@ -40,9 +41,22 @@ return {
         splitbelow = true,
     },
     g = {
-        vimwiki_list = {
-            {path='~/OneDrive/Documents/documents/Notes', syntax='markdown', ext='.md'},
-        },
+        -- Neovide settings
+        -- 
+        -- g:neovide_transparency should be called opacity, I think.
+        -- 1.0 means not transparent. 0.0 means fully transparent.
+        -- 
+        neovide_transparency = 1.0,
+        neovide_floating_blur_amount_x = 2.0,
+        neovide_floating_blur_amount_y = 2.0,
+        neovide_scroll_animation_length = 0.3,
+        neovide_animation_length = 0.13,
+        neovide_cursor_trail_length = 0.8,
+        neovide_cursor_antialiasing = true,
+        neovide_cursor_vfx_mode = "torpedo",
+        -- vimwiki_list = {
+        --     {path='~/OneDrive/Documents/documents/Notes', syntax='markdown', ext='.md'},
+        -- },
         --
         -- Markdown Preview options
         -- 
