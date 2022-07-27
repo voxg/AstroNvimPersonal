@@ -108,6 +108,24 @@ local config = {
         setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
         ft = { "markdown" },
       },
+      {
+        'nvim-neorg/neorg',
+        config = function ()
+          require('neorg').setup {
+            load = {
+              ["core.defaults"] = {},
+              ["core.neorg.dirman"] = {
+                config = {
+                  workspaces = {
+                    default = '~/notes'
+                  }
+                }
+              }
+            }
+          }
+        end,
+        requires = 'nvim-lua/plenary.nvim'
+      },
       -- {
       --   "ray-x/lsp_signature.nvim",
       --   event = "BufRead",
