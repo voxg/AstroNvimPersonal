@@ -7,7 +7,7 @@
 --                                        /___/                 /___/                
 --
 return function()
-    local home = vim.env.MARKDOWN_NOTES
+    local home = '~/notes'
     require('telekasten').setup({
         home = home,
         -- if true, telekasten will be enabled when opening a note within the configured home

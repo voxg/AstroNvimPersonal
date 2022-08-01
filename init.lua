@@ -99,6 +99,19 @@ local config = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
       {
+        'nvim-orgmode/orgmode',
+        ft = {'org'},
+        config = function()
+          require('orgmode').setup{}
+        end,
+      },
+      {
+        'akinsho/org-bullets.nvim',
+        config=function()
+          require('org-bullets').setup()
+        end,
+      },
+      {
         'renerocksai/telekasten.nvim',
         config = require('user.telekasten_config')
       },
@@ -108,24 +121,24 @@ local config = {
         setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
         ft = { "markdown" },
       },
-      {
-        'nvim-neorg/neorg',
-        config = function ()
-          require('neorg').setup {
-            load = {
-              ["core.defaults"] = {},
-              ["core.neorg.dirman"] = {
-                config = {
-                  workspaces = {
-                    default = '~/notes'
-                  }
-                }
-              }
-            }
-          }
-        end,
-        requires = 'nvim-lua/plenary.nvim'
-      },
+      -- {
+      --   'nvim-neorg/neorg',
+      --   config = function ()
+      --     require('neorg').setup {
+      --       load = {
+      --         ["core.defaults"] = {},
+      --         ["core.neorg.dirman"] = {
+      --           config = {
+      --             workspaces = {
+      --               default = '~/notes'
+      --             }
+      --           }
+      --         }
+      --       }
+      --     }
+      --   end,
+      --   requires = 'nvim-lua/plenary.nvim'
+      -- },
       -- {
       --   "ray-x/lsp_signature.nvim",
       --   event = "BufRead",
@@ -160,7 +173,10 @@ local config = {
       return config -- return final config table
     end,
     treesitter = {
-      ensure_installed = { "lua" },
+      highlight = {
+        additional_vim_regex_highlighting = {'org'},
+      },
+      ensure_installed = { "lua", "org" },
     },
     ["nvim-lsp-installer"] = {
       ensure_installed = { "sumneko_lua" },
